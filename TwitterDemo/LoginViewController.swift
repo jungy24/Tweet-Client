@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +23,19 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onLoginButton(_ sender: Any) {
+        let client = TwitterClient.sharedInstance
+        client?.login(
+            success:
+            {
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+        },
+            failure:
+            { (error: Error) in
+                print("Error: \(error)")
+        }
+        )
+    }
 
     /*
     // MARK: - Navigation
