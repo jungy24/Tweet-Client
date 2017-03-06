@@ -59,6 +59,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
         
+        cell.selectionStyle = .none
+        
         let tweet = tweets[indexPath.row]
         
         cell.userName.text = tweet.userName
@@ -87,6 +89,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         {
             cell.favButton.setImage(UIImage(named: "favor-icon.png"), for: UIControlState.normal)
         }
+        
         return cell
     }
     
